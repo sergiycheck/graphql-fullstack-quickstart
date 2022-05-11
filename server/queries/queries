@@ -1,0 +1,79 @@
+# query GetLaunches {
+#   launches {
+#     id
+#     mission {
+#       name
+#     }
+#   }
+# }
+
+# query GetLaunchById {
+#   launch(id: "60") {
+#     id
+#     rocket {
+#       id
+#       type
+#     }
+#   }
+# }
+
+
+############
+
+query GetLaunchById($id: ID!) {
+  launch(id: $id) {
+    id
+    rocket {
+      id
+      type
+    }
+  }
+}
+
+{
+  "id": "60"
+}
+
+##############
+query GetLaunches {
+  launches(pageSize: 3) {
+    launches {
+      id
+      mission {
+        name
+      }
+    }
+  }
+}
+
+
+##########
+
+mutation Mutation {
+  login(email: "someEmail@de.e") {
+    token
+    email
+    id
+  }
+}
+
+##########
+
+mutation BookTrips {
+  bookTrips(launchIds: [67, 68, 69]) {
+    success
+    message
+    launches {
+      id
+    }
+  }
+}
+
+Authorization c29tZUVtYWlsQGRlLmU=
+
+
+#####################
+
+
+
+
